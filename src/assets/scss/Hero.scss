@@ -1,0 +1,116 @@
+.Hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 7vw;
+  position: relative;
+  height: calc(100vh - var(--header-height));
+  .carosuel {
+    img {
+      border-radius: 13px;
+      transform: scale(0.98);
+    }
+  }
+  .arokiyam {
+    font-weight: bold;
+    font-size: 86px;
+    line-height: 107px;
+    color: #3a3a3a;
+    opacity: 0.2;
+  }
+  .subtitle,
+  .title {
+    font-family: Spectral SC, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: var(--black);
+  }
+  .subtitle {
+    font-size: 17px;
+    margin-top: -5px;
+  }
+  .title {
+    font-size: 38px;
+    line-height: 58px;
+    letter-spacing: 0.045em;
+    width: 500px;
+  }
+  .buttons {
+    display: flex;
+    button::after {
+      content: '';
+      height: 18px;
+      width: 18px;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
+    button {
+      font-size: 13px;
+      font-family: Roboto;
+      font-weight: 500;
+      letter-spacing: 0.155em;
+      color: #f2f3ff;
+      color: var(--bg-color);
+      width: 8.4rem;
+      height: 2.2rem;
+      border-radius: 7px;
+      border: none;
+      outline: none;
+      text-align: end;
+      padding-right: 0.9rem;
+    }
+
+    .call-us {
+      position: relative;
+      margin-right: 50px;
+      button {
+        background-color: var(--d-grey);
+        &::after {
+          background-image: url('../images/svgs/call.svg');
+        }
+      }
+    }
+    .shop-now {
+      position: relative;
+      button {
+        background-color: var(--red);
+        &::after {
+          background-image: url('../images/svgs/cartbutton.svg');
+        }
+      }
+    }
+  }
+  .floating-images {
+    position: absolute;
+  }
+  .bottels {
+    bottom: 0;
+    left: -10px;
+  }
+  .peanut {
+    right: -60px;
+    bottom: 20px;
+  }
+  .decor-dots {
+    left: 53%;
+    bottom: 25%;
+    transform: scale(0.98);
+  }
+  .down {
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+  }
+}
+
+.intro {
+  position: relative;
+  .machine {
+    position: absolute;
+    right: 0;
+    top: -80px;
+    z-index: -1;
+    transform: scale(0.98);
+  }
+}

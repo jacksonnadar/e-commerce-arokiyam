@@ -1,0 +1,30 @@
+@mixin desktop {
+  @media only screen and (max-width: 1300px) {
+    @content;
+  }
+}
+@mixin desktophuge {
+  @media only screen and (min-width: 1300px) {
+    @content;
+  }
+}
+@mixin ipadpro {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media only screen and (max-width: 680px) {
+    @content;
+  }
+}
+@mixin smallmobile {
+  @media only screen and (max-width: 445px) {
+    @content;
+  }
+}
