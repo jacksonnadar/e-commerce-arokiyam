@@ -1,0 +1,98 @@
+.ProductCard {
+  min-width: 156px;
+  height: 270px;
+  background-color: var(--white);
+  border: 3px solid var(--vl-grey);
+  border-radius: 7px;
+  padding: 20px 10px;
+  .top-section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .buttons {
+      .heart,
+      .cart {
+        position: absolute;
+        height: 29px;
+        width: 29px;
+        color: var(--white);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+          0px -1px 4px 1px rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 110px;
+        transition: all 0.2s;
+        transform-origin: center;
+        svg {
+          transition: all 0.2s;
+        }
+      }
+      .heart {
+        right: 40px;
+      }
+      .heart:hover,
+      .cart:hover {
+        transform: scale(1.2);
+        svg {
+          fill: var(--red);
+        }
+      }
+    }
+  }
+  .details {
+    .product-name {
+      font-family: Ramabhadra;
+      justify-self: flex-start;
+      font-weight: normal;
+      font-size: 14px;
+      letter-spacing: 0.065em;
+      margin-top: 30px;
+      color: var(--d-grey);
+    }
+    .price {
+      margin-top: 4px;
+      display: flex;
+      font-family: Roboto;
+      font-weight: bold;
+      letter-spacing: 0.065em;
+      .selling-price {
+        font-size: 14px;
+        line-height: 16px;
+        color: var(--green);
+      }
+      .market-price {
+        margin-left: 5px;
+        font-size: 12px;
+        text-decoration-line: line-through;
+        color: var(--l-grey);
+      }
+    }
+
+    .buy-now {
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        height: 29px;
+        width: 96%;
+        font-weight: bold;
+        background: var(--orange);
+        border-radius: 4px;
+        font-size: 14px;
+        color: var(--white);
+        border: none;
+        outline: none;
+        position: relative;
+        transition: all 0.2s;
+        transform-origin: center;
+      }
+      button:hover {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+          0px -1px 4px 1px rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}

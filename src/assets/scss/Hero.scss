@@ -1,15 +1,10 @@
 .Hero {
   display: flex;
   justify-content: space-between;
-  padding: 7vw;
+  padding: var(--common-padding);
   position: relative;
   height: calc(100vh - var(--header-height));
-  .carosuel {
-    img {
-      border-radius: 13px;
-      transform: scale(0.98);
-    }
-  }
+
   .arokiyam {
     font-weight: bold;
     font-size: 86px;
@@ -46,6 +41,7 @@
       position: absolute;
     }
     button {
+      cursor: pointer;
       font-size: 13px;
       font-family: Roboto;
       font-weight: 500;
@@ -81,27 +77,6 @@
       }
     }
   }
-  .floating-images {
-    position: absolute;
-  }
-  .bottels {
-    bottom: 0;
-    left: -10px;
-  }
-  .peanut {
-    right: -60px;
-    bottom: 20px;
-  }
-  .decor-dots {
-    left: 53%;
-    bottom: 25%;
-    transform: scale(0.98);
-  }
-  .down {
-    left: 50%;
-    bottom: 50px;
-    transform: translateX(-50%);
-  }
 }
 
 .intro {
@@ -113,4 +88,26 @@
     z-index: -1;
     transform: scale(0.98);
   }
+}
+// images in hero section
+.floating-images {
+  position: absolute;
+}
+.bottels {
+  bottom: 0;
+  left: -10px;
+}
+.peanut {
+  right: -60px;
+  bottom: 20px;
+}
+.decor-dots {
+  left: 53%;
+  bottom: 25%;
+  transform: scale(0.98);
+}
+.down {
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
 }
