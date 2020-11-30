@@ -6,15 +6,15 @@ import '../scss/ProductView.scss';
 export interface ProductInput {
   image: string;
   title: string;
-  sellingPrice: number;
-  marketPrice: number;
+  sellingPrice: string;
+  marketPrice: string;
 }
 interface ProductViewProps {}
 const data = new Array<ProductInput>(10).fill({
   image: oilBottle,
   title: 'Ground nut oil',
-  sellingPrice: 499.99,
-  marketPrice: 500.0,
+  sellingPrice: '499.99',
+  marketPrice: '500.00',
 });
 const ProductView: React.FC<ProductViewProps> = () => {
   return (

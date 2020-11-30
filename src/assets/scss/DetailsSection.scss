@@ -1,0 +1,19 @@
+.DetailsSection {
+  position: relative;
+  .decor-circle {
+    position: absolute;
+    background: rgba(170, 171, 140, 0.2);
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  .circle1 {
+    top: 18%;
+    left: 10vw;
+  }
+  .circle2 {
+    right: 10vw;
+    bottom: 18%;
+  }
+}

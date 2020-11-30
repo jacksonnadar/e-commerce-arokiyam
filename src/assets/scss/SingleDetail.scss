@@ -1,0 +1,64 @@
+.SingleDetail {
+  padding: 100px 12vw;
+  display: flex;
+  column-gap: 6vw;
+  .text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-weight: normal;
+      font-size: 24px;
+      letter-spacing: 0.065em;
+      color: var(--black);
+      text-align: right;
+      margin-bottom: 50px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .description {
+      height: calc(26.72px * 5); //line height
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 27px;
+      text-align: right;
+      letter-spacing: 0.065em;
+      overflow: hidden;
+    }
+  }
+  .image {
+    width: 50%;
+    img {
+      border-radius: 13px;
+    }
+  }
+  button.shop-now {
+    width: 130px;
+    height: 28px;
+    background-color: var(--orange);
+    border: none;
+    outline: none;
+    color: var(--white);
+    border-radius: 4px;
+    margin-top: 20%;
+    align-self: flex-end;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.065em;
+  }
+}
+.reverse {
+  flex-direction: row-reverse;
+  .text {
+    .title {
+      text-align: left;
+    }
+    .description {
+      text-align: left;
+    }
+    button.shop-now {
+      align-self: flex-start;
+    }
+  }
+}

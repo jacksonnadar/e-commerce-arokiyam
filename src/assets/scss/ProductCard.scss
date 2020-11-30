@@ -5,6 +5,7 @@
   border: 3px solid var(--vl-grey);
   border-radius: 7px;
   padding: 20px 10px;
+  scroll-snap-align: end;
   .top-section {
     display: flex;
     justify-content: center;

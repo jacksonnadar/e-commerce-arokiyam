@@ -1,0 +1,16 @@
+.Footer {
+  height: 70px;
+  width: 100%;
+  padding: 0 var(--common-padding);
+  background-color: var(--footer);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .tel,
+  .e-mail {
+    font-size: 17px;
+    letter-spacing: 0.135em;
+    color: var(--bg-color);
+    text-decoration: none;
+  }
+}

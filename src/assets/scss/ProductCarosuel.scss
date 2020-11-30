@@ -14,16 +14,50 @@
     letter-spacing: 0.065em;
     color: var(--d-grey);
   }
-  .Product-card-wraper {
+  .product-cards-container {
+    width: 100%;
     margin-top: 30px;
-    width: 90%;
-    min-height: 300px;
     display: flex;
-    column-gap: 60px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    &::-webkit-scrollbar {
-      width: 0px; /* Remove scrollbar space */
+    justify-content: space-between;
+    .Product-cards-wraper {
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      column-gap: 60px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--l-grey);
+        border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--d-grey);
+      }
+    }
+  }
+  .arrow-buttons {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    .prev,
+    .next {
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background-color: var(--d-grey);
+      height: 60px;
+      width: 60px;
     }
   }
   button.view-more {
