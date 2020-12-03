@@ -1,7 +1,7 @@
 import React, { Children, useEffect, useState, useRef } from 'react';
 // import gsap from 'gsap';
-import '../scss/Carosuel.scss';
-import arrow from '../images/svgs/arrow.svg';
+import './Carosuel.scss';
+import arrow from '../../images/svgs/arrow.svg';
 export interface Props {}
 
 const Carosuel: React.FC<Props> = ({ children }) => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductCarosuel from './ProductCarosuel';
+import ProductCarosuel from '../ProductCarosuel/ProductCarosuel';
 
-import oilBottle from '../images/pngs/oilBottle.png';
-import '../scss/ProductView.scss';
+import oilBottle from '../../images/pngs/oilBottle.png';
+import './ProductView.scss';
 export interface ProductInput {
   image: string;
   title: string;

@@ -1,8 +1,8 @@
 import React from 'react';
-import SingleDetail from './SingleDetail';
-import DetailImg from '../images/jpgs/Detail.jpg';
-import DetailImg2 from '../images/jpgs/Detail2.jpg';
-import '../scss/DetailsSection.scss';
+import SingleDetail from '../SingleDetail/SingleDetail';
+import DetailImg from '../../images/jpgs/Detail.jpg';
+import DetailImg2 from '../../images/jpgs/Detail2.jpg';
+import './DetailsSection.scss';
 
 interface Props {}
 export interface Detail {
@@ -27,7 +27,7 @@ const details = [
     link: '/',
   },
 ];
-const DetailsSection: React.FC<Props> = ({}) => {
+const DetailsSection: React.FC<Props> = () => {
   return (
     <div className="DetailsSection">
       {details.map((item, index) => {

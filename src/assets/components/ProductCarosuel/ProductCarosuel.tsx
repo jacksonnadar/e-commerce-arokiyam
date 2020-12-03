@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import ProductCard from './ProductCard';
-import '../scss/ProductCarosuel.scss';
-import { ProductInput } from './ProductView';
+import ProductCard from '../ProductCard/ProductCard';
+import './ProductCarosuel.scss';
+import { ProductInput } from '../ProductView/ProductView';
 
 export interface Props {
   productDetails: ProductInput[];
@@ -13,14 +13,12 @@ const ProductCarosuel: React.FC<Props> = ({ productDetails, title }) => {
 
   const arrowButtonClickHandler = (forward: boolean) => {
     console.log(
-      productCarosuelRef.current?.scrollWidth,
+      productCarosuelRef.current?.scrollLeft,
       productCarosuelRef.current?.offsetWidth
     );
     productCarosuelRef.current?.scrollBy({
       top: 0,
-      left: forward
-        ? productCarosuelRef.current?.scrollWidth / 2
-        : -productCarosuelRef.current?.scrollWidth / 2,
+      left: forward ? 200 : -20,
       behavior: 'smooth',
     });
   };

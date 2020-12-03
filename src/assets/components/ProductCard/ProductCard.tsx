@@ -1,7 +1,7 @@
 import React from 'react';
 
-import '../scss/ProductCard.scss';
-import { ProductInput } from './ProductView';
+import './ProductCard.scss';
+import { ProductInput } from '../ProductView/ProductView';
 interface ProductCardProps {
   productData: ProductInput;
 }

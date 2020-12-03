@@ -1,10 +1,10 @@
 import React from 'react';
 
-import logo from '../images/pngs/logo.png';
-import cart from '../images/svgs/cart.svg';
-import search from '../images/svgs/search.svg';
-import ham_menu from '../images/svgs/ham-menu.svg';
-import '../scss/Header.scss';
+import logo from '../../images/pngs/logo.png';
+import cart from '../../images/svgs/cart.svg';
+import search from '../../images/svgs/search.svg';
+import ham_menu from '../../images/svgs/ham-menu.svg';
+import './Header.scss';
 
 export interface Props {}
 

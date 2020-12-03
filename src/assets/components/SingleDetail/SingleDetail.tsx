@@ -1,6 +1,6 @@
 import React from 'react';
-import { Detail } from './DetailsSection';
-import '../scss/SingleDetail.scss';
+import { Detail } from '../DetailsSection/DetailsSection';
+import './SingleDetail.scss';
 
 interface SingleDetailProps {
   detail: Detail;

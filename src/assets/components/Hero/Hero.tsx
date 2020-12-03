@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import '../scss/Hero.scss';
-import machine from '../images/pngs/machine.png';
-import bottels from '../images/pngs/bottels.png';
-import peanut from '../images/pngs/peanut.png';
-import decorDots from '../images/svgs/decor_dots.svg';
-import down from '../images/svgs/down.svg';
-import carosuel from '../images/jpgs/carosuel.jpg';
-import Carosuel from './Carosuel';
+import './Hero.scss';
+import machine from '../../images/pngs/machine.png';
+import bottels from '../../images/pngs/bottels.png';
+import peanut from '../../images/pngs/peanut.png';
+import decorDots from '../../images/svgs/decor_dots.svg';
+import down from '../../images/svgs/down.svg';
+import carosuel from '../../images/jpgs/carosuel.jpg';
+import Carosuel from '../Carosuel/Carosuel';
 export interface Props {}
 
 const Hero: React.FC<Props> = () => {

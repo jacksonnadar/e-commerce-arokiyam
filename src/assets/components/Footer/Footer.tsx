@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/Footer.scss';
+import './Footer.scss';
 interface Props {}
 
 const Footer: React.FC<Props> = () => {
