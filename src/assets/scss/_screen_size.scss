@@ -4,7 +4,12 @@
   }
 }
 @mixin desktophuge {
-  @media only screen and (min-width: 1300px) {
+  @media only screen and (min-width: 1600px) {
+    @content;
+  }
+}
+@mixin display2k {
+  @media only screen and (min-width: 2048px) {
     @content;
   }
 }

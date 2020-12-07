@@ -1,3 +1,4 @@
+@import './assets/scss/screen_size';
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,8 +17,15 @@
   --footer: #393b4c;
   --white: #fff;
   --black: #000;
-  --header-height: 55px;
-  --common-padding: 7vw;
+  --header-height: 3.4rem;
+  --common-padding: 8vw;
+  font-size: 16px;
+  @include desktophuge {
+    font-size: 20px;
+  }
+  @include display2k {
+    font-size: 24px;
+  }
 }
 body {
   min-width: 100vw;

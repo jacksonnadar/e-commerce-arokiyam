@@ -1,16 +1,17 @@
+@import '../../scss/screen_size';
+
 .carosuel {
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  top: 15px;
 
   img {
     position: relative;
     scroll-snap-align: end;
     border-radius: 13px;
-    height: 100%;
-    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
   }
   &::-webkit-scrollbar {
     width: 0px; /* Remove scrollbar space */
@@ -19,14 +20,14 @@
 .carosuel-wrapper {
   height: max-content;
   min-width: 606px;
-  width: 606px;
+  width: 37.8rem;
   min-height: 286px;
   position: relative;
   .prev,
   .next {
     position: absolute;
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     background-color: var(--bg-color);
     border-radius: 50%;
     top: 50%;
@@ -69,17 +70,18 @@
     display: flex;
     justify-content: center;
     .pagination-dot {
-      width: 11px;
-      height: 11px;
-      margin: 5px;
-      border-radius: 5px;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin: 0.3rem;
+      border-radius: 50%;
       background-color: var(--vl-grey);
       transition: all 0.2s;
     }
 
     .pagination-dot-active {
-      width: 20px;
+      width: 1.2rem;
       background-color: var(--b-green);
+      border-radius: 1rem;
     }
   }
 }

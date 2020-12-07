@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   min-width: 100%;
-  height: 470px;
+  height: 30rem;
   box-shadow: 0px 4px 61px -20px rgba(0, 0, 0, 0.25);
   background-color: var(--gc-colour);
-  margin: 25px 0;
-  padding: 10px var(--common-padding);
+  margin: 1.5rem 0;
+  padding: 0.7rem var(--common-padding);
   .title {
-    margin-top: 20px;
+    margin-top: 1.4rem;
     font-weight: 400;
     font-size: 1.5rem;
     letter-spacing: 0.065em;
@@ -16,18 +16,18 @@
   }
   .product-cards-container {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 1.9rem;
     display: flex;
     justify-content: space-between;
     .Product-cards-wraper {
       width: 90%;
       display: flex;
       flex-direction: row;
-      column-gap: 60px;
+      column-gap: 3.75rem;
       overflow-x: scroll;
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
-      padding-bottom: 10px;
+      padding-bottom: 0.7rem;
       &::-webkit-scrollbar {
         height: 8px;
       }
@@ -51,7 +51,7 @@
     .prev,
     .next {
       cursor: pointer;
-      margin: 5px;
+      margin: 0.3rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -62,10 +62,10 @@
     }
   }
   button.view-more {
-    margin-top: 10px;
-    width: 108px;
-    height: 24px;
-    font-size: 10px;
+    margin-top: 0.7rem;
+    width: 6.75rem;
+    height: 1.5rem;
+    font-size: 0.7rem;
     letter-spacing: 0.065em;
     color: var(--bg-color);
     background-color: var(--d-grey);
