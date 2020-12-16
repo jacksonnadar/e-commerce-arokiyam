@@ -1,11 +1,19 @@
+@import '../../scss/screen_size';
+
 .SingleDetail {
-  padding: 6.25rem 12vw;
+  padding: 6.25rem var(--common-padding);
   display: flex;
   column-gap: 6vw;
+  @include ipadpro {
+    padding: 3rem var(--common-padding);
+  }
   .text {
     width: 50%;
     display: flex;
     flex-direction: column;
+    @include ipadpro {
+      width: 100%;
+    }
     .title {
       font-weight: normal;
       font-size: 1.5rem;
@@ -28,6 +36,7 @@
   }
   .image {
     width: 50%;
+
     img {
       border-radius: 0.8rem;
       width: 30rem;
@@ -46,12 +55,19 @@
     margin-top: 20%;
     align-self: flex-end;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 0.9rem;
     letter-spacing: 0.065em;
+    @include ipadpro {
+      width: 12rem;
+      height: 2.5rem;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+    }
   }
 }
 .reverse {
   flex-direction: row-reverse;
+
   .text {
     .title {
       text-align: left;
@@ -66,5 +82,45 @@
   .image {
     display: flex;
     justify-content: flex-end;
+  }
+}
+.SingleDetail,
+.reverse {
+  @include ipadpro {
+    flex-direction: column-reverse;
+  }
+  .text {
+    .title {
+      @include ipadpro {
+        text-align: center;
+        margin: 2rem 0 2rem 0;
+        font-size: 2rem;
+      }
+      @include mobile {
+        font-size: 1.4rem;
+      }
+    }
+    .description {
+      @include ipadpro {
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      @include mobile {
+        font-size: 0.9rem;
+      }
+    }
+    button.shop-now {
+      align-self: center;
+    }
+  }
+  .image {
+    @include ipadpro {
+      width: 100%;
+    }
+    img {
+      @include ipadpro {
+        width: 100%;
+      }
+    }
   }
 }

@@ -1,3 +1,4 @@
+@import '../../scss/screen_size';
 header {
   font-family: 'Roboto', sans-serif;
   height: var(--header-height);
@@ -22,6 +23,7 @@ header {
       align-items: center;
       .logo {
         margin-left: -0.4rem;
+        width: 3.7rem;
       }
       .nav-links {
         letter-spacing: 0.065em;
@@ -32,6 +34,9 @@ header {
         flex-direction: row;
         align-items: center;
         cursor: pointer;
+        @include ipadpro {
+          display: none;
+        }
         a {
           text-decoration: none;
 
@@ -43,7 +48,7 @@ header {
             background: var(--red);
             color: var(--bg-color);
             padding: 0.3em 1em;
-            border-radius: 4px;
+            border-radius: 0.2rem;
           }
         }
       }
@@ -63,12 +68,19 @@ header {
         border: none;
         outline: none;
         cursor: pointer;
+        @include ipadpro {
+          display: none;
+        }
       }
       .search-box {
         position: relative;
         width: 10rem;
         height: 1.93rem;
         margin-right: 1.9rem;
+        @include ipadpro {
+          width: 15rem;
+          height: 2.2rem;
+        }
         #search::placeholder,
         #search {
           font-size: 0.7rem;
@@ -83,7 +95,7 @@ header {
           height: 100%;
           width: 100%;
           padding: 10px;
-          border-radius: 0.4rem;
+          border-radius: 0.2rem;
           letter-spacing: 0.1em;
           border: none;
           outline: none;
@@ -91,6 +103,7 @@ header {
 
         img {
           position: absolute;
+          width: 1.2rem;
           right: 0.8rem;
           top: 50%;
           transform: translateY(-50%);
@@ -98,7 +111,12 @@ header {
         }
       }
       .cart {
-        margin-right: 2vw;
+        margin-right: 1.8rem;
+        width: 1.8rem;
+        height: auto;
+      }
+      .ham-menu {
+        width: 1.8rem;
       }
     }
   }

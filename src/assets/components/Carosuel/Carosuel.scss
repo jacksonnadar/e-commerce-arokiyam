@@ -1,28 +1,36 @@
 @import '../../scss/screen_size';
 
-.carosuel {
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-
-  img {
-    position: relative;
-    scroll-snap-align: end;
-    border-radius: 13px;
-    min-height: 100%;
-    min-width: 100%;
-  }
-  &::-webkit-scrollbar {
-    width: 0px; /* Remove scrollbar space */
-  }
-}
 .carosuel-wrapper {
+  width: 36.3rem;
   height: max-content;
-  min-width: 606px;
-  width: 37.8rem;
-  min-height: 286px;
   position: relative;
+  margin-bottom: 5rem;
+  @include ipadpro {
+    width: 100%;
+  }
+  @include mobile {
+    margin-bottom: 1rem;
+  }
+  .carosuel {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+
+    .carosuel-card {
+      display: block;
+      min-width: 100%;
+      scroll-snap-align: end;
+      border-radius: 13px;
+      object-fit: cover;
+      @include mobile {
+        height: 14rem;
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 0px; /* Remove scrollbar space */
+    }
+  }
   .prev,
   .next {
     position: absolute;
@@ -37,6 +45,9 @@
     transform: matrix(-1, 0, 0, 1, 0, 0);
     align-items: center;
     transition: 0.2s;
+    @include mobile {
+      display: none;
+    }
     cursor: pointer;
     img {
       position: relative;

@@ -15,16 +15,15 @@ const Hero: React.FC<Props> = () => {
     <div className="Hero">
       <div className="hero-wraper">
         <Carosuel>
-          <img src={carosuel} alt="" />
-          <img src={carosuel} alt="" />
-          <img src={carosuel} alt="" />
-          <img src={carosuel} alt="" />
+          <img className="carosuel-card" src={carosuel} alt="" />
+          <img className="carosuel-card" src={carosuel} alt="" />
+          <img className="carosuel-card" src={carosuel} alt="" />
+          <img className="carosuel-card" src={carosuel} alt="" />
         </Carosuel>
         <section className="intro">
           <h1 className="arokiyam">AROKIYAM</h1>
           <p className="subtitle">Eat right, be bright.</p>
-          <p className="title">your health our</p>
-          <p className="title">concern.</p>
+          <p className="title">your health our concern.</p>
           <div className="buttons">
             <div className="call-us">
               <button>Call Us&nbsp;&nbsp;&nbsp;</button>

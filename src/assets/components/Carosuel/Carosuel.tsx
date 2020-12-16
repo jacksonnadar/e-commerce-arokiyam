@@ -25,7 +25,7 @@ const Carosuel: React.FC<Props> = ({ children }) => {
       });
     }, 4000);
     return () => clearInterval(interval);
-  });
+  }, [currentBanner]);
   const scroll = (forward: boolean) => {
     carosuelRef.current?.scrollBy({
       top: 0,
@@ -36,11 +36,9 @@ const Carosuel: React.FC<Props> = ({ children }) => {
     });
   };
   const checkScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
-    if (e.currentTarget.scrollLeft % e.currentTarget.offsetWidth === 0) {
-      setCurrentBanner(
-        e.currentTarget.scrollLeft / e.currentTarget.offsetWidth
-      );
-    }
+    setCurrentBanner(
+      Math.round(e.currentTarget.scrollLeft / e.currentTarget.offsetWidth)
+    );
   };
   const paginationCLickHandler = (dot: number) => {
     carosuelRef.current?.scrollTo({

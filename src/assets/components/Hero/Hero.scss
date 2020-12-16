@@ -10,10 +10,21 @@
   @include display2k {
     padding-top: 20vh;
   }
+  @include ipadpro {
+    padding-top: 5rem;
+  }
+  @include mobile {
+    padding-top: 5vh;
+  }
   .hero-wraper {
     min-width: 90%;
     display: flex;
     justify-content: space-between;
+    @include ipadpro {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
     .arokiyam {
       font-weight: bold;
       font-size: 4.6rem;
@@ -33,12 +44,20 @@
       margin-top: -0.3rem;
     }
     .title {
+      // display: inline;
+      width: 23rem;
       font-size: 2.37rem;
       line-height: 3.6rem;
       letter-spacing: 0.045em;
+      @include ipadpro {
+        width: 18rem;
+      }
     }
     .buttons {
       display: flex;
+      @include ipadpro {
+        margin-top: 2rem;
+      }
       button::after {
         content: '';
         height: 1.2rem;
@@ -49,6 +68,10 @@
         background-repeat: no-repeat;
         position: absolute;
         background-size: 100%;
+        @include ipadpro {
+          height: 1.4rem;
+          width: 1.4rem;
+        }
       }
       button {
         cursor: pointer;
@@ -60,11 +83,16 @@
         color: var(--bg-color);
         width: 8.4rem;
         height: 2.2rem;
-        border-radius: 7px;
+        border-radius: 0.3rem;
         border: none;
         outline: none;
         text-align: end;
         padding-right: 0.9rem;
+        @include ipadpro {
+          width: 10rem;
+          height: 2.8rem;
+          font-size: 1rem;
+        }
       }
 
       .call-us {
@@ -92,20 +120,33 @@
 
 .intro {
   position: relative;
+  align-self: flex-start;
   .machine {
     position: absolute;
     right: -5rem;
     top: -5rem;
     z-index: -1;
-    transform: scale(0.98);
+    width: 20rem;
     @include desktophuge {
       top: -2rem;
+    }
+    @include ipadpro {
+      top: 0;
+      right: -15rem;
+    }
+    @include ipad {
+      right: -20rem;
+    }
+    @include mobile {
+      width: 16rem;
+      right: -5rem;
     }
   }
 }
 // images in hero section
 .floating-images {
   position: absolute;
+  z-index: -2;
 }
 .bottels {
   width: 15rem;
@@ -123,7 +164,17 @@
   left: 53%;
   bottom: 25%;
   transform: scale(0.98);
-  z-index: -2;
+  @include ipadpro {
+    bottom: 18%;
+  }
+  @include ipad {
+    left: 40%;
+    bottom: 5%;
+  }
+  @include mobile {
+    left: 40%;
+    bottom: 15%;
+  }
 }
 .down {
   left: 50%;

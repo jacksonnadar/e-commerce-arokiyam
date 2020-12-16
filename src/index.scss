@@ -23,8 +23,25 @@
   @include desktophuge {
     font-size: 20px;
   }
+  @include desktop {
+    font-size: 14px;
+  }
+
   @include display2k {
     font-size: 24px;
+  }
+  @include ipadpro {
+    font-size: 20px;
+    --common-padding: 8vw;
+  }
+  @include ipad {
+    font-size: 15px;
+    --common-padding: 8vw;
+  }
+  @include mobile {
+    font-size: 12px;
+    --header-height: 3.8rem;
+    --common-padding: 5vw;
   }
 }
 body {
@@ -38,10 +55,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg-color);
   .bg-leaf {
+    width: 40rem;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -4;
+    @include mobile {
+      width: 25rem;
+    }
   }
 }
 

@@ -12,10 +12,6 @@ const ProductCarosuel: React.FC<Props> = ({ productDetails, title }) => {
   const productCarosuelRef = useRef<HTMLDivElement | null>(null);
 
   const arrowButtonClickHandler = (forward: boolean) => {
-    console.log(
-      productCarosuelRef.current?.scrollLeft,
-      productCarosuelRef.current?.offsetWidth
-    );
     productCarosuelRef.current?.scrollBy({
       top: 0,
       left: forward ? 200 : -20,
