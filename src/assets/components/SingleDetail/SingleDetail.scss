@@ -110,7 +110,9 @@
       }
     }
     button.shop-now {
-      align-self: center;
+      @include ipadpro {
+        align-self: center;
+      }
     }
   }
   .image {

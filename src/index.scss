@@ -43,6 +43,11 @@
     --header-height: 3.8rem;
     --common-padding: 5vw;
   }
+  @include smallmobile {
+    font-size: 11px;
+    --header-height: 3.8rem;
+    --common-padding: 5vw;
+  }
 }
 body {
   min-width: 100vw;

@@ -1,11 +1,13 @@
 @import '../../scss/screen_size';
 
 .Hero {
+  position: relative;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   padding: 15vh var(--common-padding);
   // position: relative;
-  height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
   margin: auto;
   @include display2k {
     padding-top: 20vh;
@@ -20,10 +22,14 @@
     min-width: 90%;
     display: flex;
     justify-content: space-between;
+
     @include ipadpro {
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+    }
+    @include mobile {
+      margin-bottom: 3rem;
     }
     .arokiyam {
       font-weight: bold;

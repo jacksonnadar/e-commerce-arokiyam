@@ -25,7 +25,7 @@ const Carosuel: React.FC<Props> = ({ children }) => {
       });
     }, 4000);
     return () => clearInterval(interval);
-  }, [currentBanner]);
+  }, [currentBanner, totalChildren.length]);
   const scroll = (forward: boolean) => {
     carosuelRef.current?.scrollBy({
       top: 0,
