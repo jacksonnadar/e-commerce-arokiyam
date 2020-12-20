@@ -7,6 +7,7 @@ import peanut from '../../images/pngs/peanut.png';
 import decorDots from '../../images/svgs/decor_dots.svg';
 import down from '../../images/svgs/down.svg';
 import carosuel from '../../images/jpgs/carosuel.jpg';
+import carosuel_small from '../../images/jpgs/carosuel_small.jpg';
 import Carosuel from '../Carosuel/Carosuel';
 export interface Props {}
 
@@ -15,10 +16,30 @@ const Hero: React.FC<Props> = () => {
     <div className="Hero">
       <div className="hero-wraper">
         <Carosuel>
-          <img className="carosuel-card" src={carosuel} alt="" />
-          <img className="carosuel-card" src={carosuel} alt="" />
-          <img className="carosuel-card" src={carosuel} alt="" />
-          <img className="carosuel-card" src={carosuel} alt="" />
+          <img
+            className="carosuel-card blur"
+            data-image={carosuel}
+            src={carosuel_small}
+            alt=""
+          />
+          <img
+            className="carosuel-card blur"
+            data-image={carosuel}
+            src={carosuel_small}
+            alt=""
+          />
+          <img
+            className="carosuel-card blur"
+            data-image={carosuel}
+            src={carosuel_small}
+            alt=""
+          />
+          <img
+            className="carosuel-card blur"
+            data-image={carosuel}
+            src={carosuel_small}
+            alt=""
+          />
         </Carosuel>
         <section className="intro">
           <h1 className="arokiyam">AROKIYAM</h1>

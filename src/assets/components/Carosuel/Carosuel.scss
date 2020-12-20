@@ -23,6 +23,7 @@
       scroll-snap-align: end;
       border-radius: 13px;
       object-fit: cover;
+      margin: 5px;
       @include mobile {
         height: 14rem;
       }
@@ -80,6 +81,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
+    top: -10px;
     .pagination-dot {
       width: 0.7rem;
       height: 0.7rem;

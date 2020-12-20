@@ -4,7 +4,7 @@
   position: relative;
   overflow-x: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 15vh var(--common-padding);
   // position: relative;
   min-height: calc(100vh - var(--header-height));
@@ -129,7 +129,7 @@
   align-self: flex-start;
   .machine {
     position: absolute;
-    right: -5rem;
+    right: -8rem;
     top: -5rem;
     z-index: -1;
     width: 20rem;

@@ -110,13 +110,21 @@ header {
           z-index: 2;
         }
       }
-      .cart {
-        margin-right: 1.8rem;
-        width: 1.8rem;
-        height: auto;
-      }
-      .ham-menu {
-        width: 1.8rem;
+      .icons {
+        display: flex;
+        height: max-content;
+
+        .cart {
+          margin-right: 1.8rem;
+        }
+        .ham-menu,
+        .cart {
+          height: max-content;
+          svg {
+            width: 2rem;
+            display: block;
+          }
+        }
       }
     }
   }

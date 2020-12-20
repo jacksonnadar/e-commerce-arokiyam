@@ -37,6 +37,9 @@
       }
       &::-webkit-scrollbar {
         height: 8px;
+        @include mobile {
+          height: 5px;
+        }
       }
       &::-webkit-scrollbar-track {
         border-radius: 10px;
@@ -47,6 +50,9 @@
       }
       &::-webkit-scrollbar-thumb:hover {
         background: var(--d-grey);
+      }
+      &::-webkit-scrollbar-thumb:active {
+        background: var(--black);
       }
     }
   }

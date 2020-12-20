@@ -12,6 +12,31 @@ const Carosuel: React.FC<Props> = ({ children }) => {
     carosuelRef.current!.scrollTop = 0;
   }, []);
   useEffect(() => {
+    console.log('render');
+
+    Array.from(carosuelRef.current!.children).forEach((child, index) => {
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            let completedLoading = false;
+            if (entry.isIntersecting && !completedLoading) {
+              // console.log('inters');
+              const imgSrc = child.getAttribute('data-image')!.toString();
+              child.setAttribute('src', imgSrc);
+              child.classList.remove('blur');
+              completedLoading = true;
+            }
+            if (entry.isIntersecting) {
+              setCurrentBanner(index);
+            }
+          });
+        },
+        { root: carosuelRef.current, threshold: 0.8 }
+      );
+      observer.observe(child);
+    });
+  }, []);
+  useEffect(() => {
     const interval = setInterval(() => {
       carosuelRef.current!.scrollTo({
         top: 0,
@@ -50,7 +75,7 @@ const Carosuel: React.FC<Props> = ({ children }) => {
 
   return (
     <div className="carosuel-wrapper">
-      <section ref={carosuelRef} onScroll={checkScroll} className="carosuel">
+      <section ref={carosuelRef} className="carosuel">
         {children}
       </section>
       <div

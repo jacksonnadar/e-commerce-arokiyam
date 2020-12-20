@@ -36,12 +36,13 @@
   }
   .image {
     width: 50%;
-
     img {
       border-radius: 0.8rem;
       width: 30rem;
       height: auto;
       object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s;
     }
   }
   button.shop-now {
@@ -118,6 +119,7 @@
   .image {
     @include ipadpro {
       width: 100%;
+      min-height: 100%;
     }
     img {
       @include ipadpro {
