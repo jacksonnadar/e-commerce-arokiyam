@@ -1,0 +1,188 @@
+@import '../../../scss/screen_size';
+.Menu {
+  position: fixed;
+  top: calc(var(--header-height) + 1rem);
+  right: 1.5rem;
+  width: 23.4rem;
+  background-color: var(--bg-color);
+  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);
+  border-radius: 0.9rem;
+  z-index: 3;
+  transform: translateX(110%);
+  transition: transform 0.5s cubic-bezier(0, 0.06, 0.37, 1.19);
+  @include ipadpro {
+    right: 0rem;
+    top: var(--header-height);
+    min-height: calc(100vh - var(--header-height));
+    width: 50vw;
+  }
+  @include mobile {
+    width: 75vw;
+  }
+  section.top {
+    display: flex;
+    padding: 2rem;
+    column-gap: 2rem;
+    font-size: 1rem;
+    @include ipadpro {
+      font-size: 1.3rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-pic {
+      img {
+        width: 4rem;
+        border-radius: 50%;
+        @include ipadpro {
+          width: 6rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    .acc-details {
+      display: flex;
+      flex-direction: column;
+      @include ipadpro {
+        justify-content: center;
+        align-items: center;
+      }
+      .name {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1em;
+        text-align: left;
+        letter-spacing: -0.333333px;
+
+        color: var(--black);
+      }
+      .acc-settings {
+        display: flex;
+        font-size: 0.8em;
+        align-items: center;
+        margin-top: 0.5em;
+        p {
+          margin-left: 0.5em;
+        }
+      }
+      .acc-balance {
+        display: flex;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        align-items: center;
+        margin-top: 0.8em;
+        h1 {
+          font-weight: normal;
+          font-size: 1em;
+          letter-spacing: -0.333333px;
+          color: var(--black);
+        }
+        p {
+          font-size: 0.7em;
+          letter-spacing: -0.333333px;
+
+          color: var(--l-grey);
+        }
+      }
+      button.liked {
+        box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        background-color: var(--d-grey);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.8rem;
+
+        margin-top: 0.8rem;
+        @include ipadpro {
+          margin-top: 1.2rem;
+          padding: 0 0.7rem;
+        }
+        h3 {
+          font-weight: normal;
+          font-size: 1rem;
+          color: var(--bg-color);
+          margin-left: 0.2rem;
+          @include ipadpro {
+            padding: 0.4em;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+  section.bottom {
+    display: none;
+    font-size: 1.5rem;
+    @include ipadpro {
+      height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .nav-links {
+        letter-spacing: 0.065em;
+        font-weight: 400;
+
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.3em;
+        align-items: center;
+        @include smallmobile {
+          font-size: 1.2rem;
+          row-gap: 0.7em;
+        }
+        cursor: pointer;
+        margin-bottom: 2rem;
+        a {
+          text-decoration: none;
+          position: relative;
+          .nav-link {
+            margin: 0.2em 0;
+            color: var(--d-grey);
+            font-size: 1em;
+            line-height: 23px;
+            text-align: center;
+            letter-spacing: 0.166667px;
+          }
+          .active {
+            background: var(--green);
+            color: var(--bg-color);
+            padding: 0.5em 2em;
+            border-radius: 0.2rem;
+            @include smallmobile {
+              padding: 0.3em 2em;
+            }
+          }
+          li:not(.active)::after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 0.1rem;
+            bottom: -0.4rem;
+            left: 50%;
+            background-color: var(--d-grey);
+            transform: translateX(-50%);
+          }
+        }
+      }
+      .auth {
+        width: 70%;
+        padding: 0.4em 2em;
+        border: none;
+        font-size: 1em;
+        background-color: var(--red);
+        color: var(--bg-color);
+        border-radius: 0.5rem;
+        justify-self: self-end;
+      }
+    }
+  }
+}
+.active-menu {
+  transform: translateX(0);
+}

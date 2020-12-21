@@ -16,14 +16,14 @@
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-
     .carosuel-card {
       display: block;
       min-width: 100%;
       scroll-snap-align: end;
-      border-radius: 13px;
       object-fit: cover;
       margin: 5px;
+      border-radius: 0.8rem;
+
       @include mobile {
         height: 14rem;
       }

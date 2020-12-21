@@ -60,11 +60,7 @@ const Carosuel: React.FC<Props> = ({ children }) => {
       behavior: 'smooth',
     });
   };
-  const checkScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
-    setCurrentBanner(
-      Math.round(e.currentTarget.scrollLeft / e.currentTarget.offsetWidth)
-    );
-  };
+
   const paginationCLickHandler = (dot: number) => {
     carosuelRef.current?.scrollTo({
       top: 0,

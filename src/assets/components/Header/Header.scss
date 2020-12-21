@@ -6,6 +6,9 @@ header {
   padding: 0 4vw;
   display: flex;
   justify-content: center;
+  position: fixed;
+  z-index: 4;
+  // overflow-x: hidden;
   background: linear-gradient(
     180deg,
     var(--bg-color) 0%,
@@ -45,7 +48,7 @@ header {
             color: var(--d-grey);
           }
           .active {
-            background: var(--red);
+            background: var(--green);
             color: var(--bg-color);
             padding: 0.3em 1em;
             border-radius: 0.2rem;
@@ -55,11 +58,11 @@ header {
     }
     .section-2 {
       display: flex;
-      .login {
+      .auth {
         padding: 0 1.5em;
         height: 1.93rem;
         margin-right: 20px;
-        background: var(--green);
+        background: var(--red);
         border-radius: 3px;
         color: var(--bg-color);
         font-weight: bold;
@@ -119,6 +122,7 @@ header {
         }
         .ham-menu,
         .cart {
+          cursor: pointer;
           height: max-content;
           svg {
             width: 2rem;
@@ -126,6 +130,21 @@ header {
           }
         }
       }
+    }
+  }
+  .overlay {
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--black);
+    opacity: 0;
+    z-index: -5;
+    transform: translateX(-100vh);
+
+    &-active {
+      transform: translateX(0);
     }
   }
 }

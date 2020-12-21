@@ -1,37 +1,28 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import NavLinks from './NavLinks';
 
 import logo from '../../images/pngs/logo.png';
 import search from '../../images/svgs/search.svg';
 import './Header.scss';
+import Menu from './Menu/Menu';
 
 export interface Props {}
 
 const Header: React.FC<Props> = () => {
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const [isMenuActive, setIsMenuActive] = useState(false);
+  const menuClickHandler = () => {
+    setIsMenuActive(!isMenuActive);
+  };
   return (
     <header>
       <nav>
         <section className="section-1">
           <img src={logo} alt={'img'} className="logo"></img>
-          <ul className="nav-links">
-            <a href="/">
-              <li className="nav-link active">Home</li>
-            </a>
-            <a href="/">
-              <li className="nav-link">Products</li>
-            </a>
-            <a href="/">
-              <li className="nav-link">About us</li>
-            </a>
-            <a href="/">
-              <li className="nav-link">Contact</li>
-            </a>
-            <a href="/">
-              <li className="nav-link">Locations</li>
-            </a>
-          </ul>
+          <NavLinks />
         </section>
         <section className="section-2">
-          <button className="login">Login</button>
+          <button className="auth">Login</button>
           <div className="search-box">
             <input placeholder={'search'} id="search"></input>
             <img src={search} alt="search" />
@@ -45,7 +36,7 @@ const Header: React.FC<Props> = () => {
                 />
               </svg>
             </div>
-            <div className="ham-menu">
+            <div className="ham-menu" onClick={menuClickHandler}>
               <svg viewBox="0 0 30 24" fill="none">
                 <rect width="29.8571" height="3" rx="1.5" fill="#3A3A3A" />
                 <rect
@@ -68,6 +59,11 @@ const Header: React.FC<Props> = () => {
           </div>
         </section>
       </nav>
+      <Menu isMenuActive={isMenuActive} />
+
+      <div
+        className={!isMenuActive ? 'overlay overlay-active' : 'overlay'}
+      ></div>
     </header>
   );
 };

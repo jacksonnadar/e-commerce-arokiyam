@@ -8,7 +8,8 @@
   padding: 15vh var(--common-padding);
   // position: relative;
   min-height: calc(100vh - var(--header-height));
-  margin: auto;
+  margin-top: var(--header-height);
+
   @include display2k {
     padding-top: 20vh;
   }
