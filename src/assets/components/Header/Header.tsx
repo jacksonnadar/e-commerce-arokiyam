@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import NavLinks from './NavLinks';
 
 import logo from '../../images/pngs/logo.png';
@@ -9,7 +9,6 @@ import Menu from './Menu/Menu';
 export interface Props {}
 
 const Header: React.FC<Props> = () => {
-  const menuRef = useRef<HTMLDivElement | null>(null);
   const [isMenuActive, setIsMenuActive] = useState(false);
   const menuClickHandler = () => {
     setIsMenuActive(!isMenuActive);
@@ -36,25 +35,14 @@ const Header: React.FC<Props> = () => {
                 />
               </svg>
             </div>
-            <div className="ham-menu" onClick={menuClickHandler}>
-              <svg viewBox="0 0 30 24" fill="none">
-                <rect width="29.8571" height="3" rx="1.5" fill="#3A3A3A" />
-                <rect
-                  y="6.76007"
-                  width="29.8571"
-                  height="3"
-                  rx="1.5"
-                  fill="#3A3A3A"
-                />
-                <rect y="14" width="21" height="3" rx="1.5" fill="#3A3A3A" />
-                <rect
-                  y="20.2803"
-                  width="29.8571"
-                  height="3"
-                  rx="1.5"
-                  fill="#3A3A3A"
-                />
-              </svg>
+            <div
+              className={isMenuActive ? 'ham-menu ham-menu-active' : 'ham-menu'}
+              onClick={menuClickHandler}
+            >
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
             </div>
           </div>
         </section>
@@ -62,7 +50,8 @@ const Header: React.FC<Props> = () => {
       <Menu isMenuActive={isMenuActive} />
 
       <div
-        className={!isMenuActive ? 'overlay overlay-active' : 'overlay'}
+        className={isMenuActive ? 'overlay overlay-active' : 'overlay'}
+        onClick={() => setIsMenuActive(false)}
       ></div>
     </header>
   );

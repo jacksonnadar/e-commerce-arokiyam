@@ -9,7 +9,7 @@ interface Props {
 
 const Menu: React.FC<Props> = ({ isMenuActive }) => {
   return (
-    <div className={isMenuActive ? 'Menu' : 'Menu active-menu'}>
+    <div className={!isMenuActive ? 'Menu' : 'Menu active-menu'}>
       <section className="top">
         <div className="profile-pic">
           <img src={avatar} alt="" />

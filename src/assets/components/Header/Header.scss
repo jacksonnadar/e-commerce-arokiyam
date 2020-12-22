@@ -120,6 +120,42 @@ header {
         .cart {
           margin-right: 1.8rem;
         }
+        .ham-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 23px;
+          width: 30px;
+
+          .bar {
+            height: 3.9px;
+            width: 100%;
+            background-color: var(--d-grey);
+            border-radius: 4px;
+            transform: scaleY(0.8);
+            transition: all 0.5s;
+            transform-origin: center;
+          }
+          .bar:nth-child(3) {
+            width: 70%;
+            transform-origin: left;
+          }
+          .bar:nth-child(2) {
+            transform-origin: left;
+          }
+        }
+        .ham-menu-active {
+          .bar:nth-child(3),
+          .bar:nth-child(2) {
+            transform: scaleX(0);
+          }
+          .bar:nth-child(1) {
+            transform: rotateZ(45deg) translate(5px, 9.5px) scaleX(1.1);
+          }
+          .bar:nth-child(4) {
+            transform: rotateZ(-45deg) translate(5px, -9.5px) scaleX(1.1);
+          }
+        }
         .ham-menu,
         .cart {
           cursor: pointer;

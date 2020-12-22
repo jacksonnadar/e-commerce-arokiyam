@@ -24,6 +24,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      transform: translate(-2rem, 0);
     }
     .description {
       font-weight: 300;
@@ -32,6 +33,7 @@
       text-align: right;
       letter-spacing: 0.065em;
       overflow: hidden;
+      transform: translate(-3rem, 0);
     }
   }
   .image {
@@ -42,7 +44,8 @@
       height: auto;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 0.5s;
+
+      transform: translate(3rem, 0);
     }
   }
   button.shop-now {
@@ -58,6 +61,7 @@
     font-weight: bold;
     font-size: 0.9rem;
     letter-spacing: 0.065em;
+    transform: translateY(2rem);
     @include ipadpro {
       width: 12rem;
       height: 2.5rem;
@@ -72,9 +76,11 @@
   .text {
     .title {
       text-align: left;
+      transform: translate(2rem, 0);
     }
     .description {
       text-align: left;
+      transform: translate(2rem, 0);
     }
     button.shop-now {
       align-self: flex-start;
@@ -83,6 +89,9 @@
   .image {
     display: flex;
     justify-content: flex-end;
+    img {
+      transform: translate(-3rem, 0);
+    }
   }
 }
 .SingleDetail,
@@ -91,8 +100,17 @@
     flex-direction: column-reverse;
   }
   .text {
+    .active {
+      opacity: 1 !important;
+      transform: translate(0, 0) !important;
+    }
     .title {
+      opacity: 0;
+      transition: all 1s;
+
       @include ipadpro {
+        transition: all 1s 0.5s;
+        transform: translate(0, -2rem);
         text-align: center;
         margin: 2rem 0 2rem 0;
         font-size: 2rem;
@@ -102,16 +120,23 @@
       }
     }
     .description {
+      opacity: 0;
+      transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) 0.7s;
       @include ipadpro {
+        transition-delay: 1s;
         text-align: center;
         font-size: 1.1rem;
+        transform: translate(0, -2rem);
       }
       @include mobile {
         font-size: 0.9rem;
       }
     }
     button.shop-now {
+      opacity: 0;
+      transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) 01s;
       @include ipadpro {
+        transition-delay: 1.3s;
         align-self: center;
       }
     }
@@ -122,9 +147,15 @@
       min-height: 100%;
     }
     img {
+      transition: all 1s;
       @include ipadpro {
+        transform: translate(0, -2rem);
         width: 100%;
       }
+    }
+    .img-active {
+      opacity: 1;
+      transform: translate(0, 0);
     }
   }
 }
