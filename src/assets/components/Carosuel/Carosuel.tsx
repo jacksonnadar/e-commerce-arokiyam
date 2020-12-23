@@ -95,7 +95,7 @@ const Carosuel: React.FC<Props> = ({ children }) => {
           return (
             <div
               key={index}
-              onClick={(e) => paginationCLickHandler(index)}
+              onClick={() => paginationCLickHandler(index)}
               className={` ${
                 index === currentBanner ? ' pagination-dot-active' : ''
               } pagination-dot`}

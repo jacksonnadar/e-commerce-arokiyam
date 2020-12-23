@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavLinks from './NavLinks';
 
 import logo from '../../images/pngs/logo.png';
@@ -10,12 +10,22 @@ export interface Props {}
 
 const Header: React.FC<Props> = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
-  const menuClickHandler = () => {
-    setIsMenuActive(!isMenuActive);
-  };
+  const [isHeader, setIsHeader] = useState(true);
+  useEffect(() => {
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        setIsHeader(true);
+      } else {
+        setIsHeader(false);
+      }
+      prevScrollpos = currentScrollPos;
+    };
+  });
   return (
     <header>
-      <nav>
+      <nav className={isHeader ? 'header-active' : ''}>
         <section className="section-1">
           <img src={logo} alt={'img'} className="logo"></img>
           <NavLinks />
@@ -37,7 +47,7 @@ const Header: React.FC<Props> = () => {
             </div>
             <div
               className={isMenuActive ? 'ham-menu ham-menu-active' : 'ham-menu'}
-              onClick={menuClickHandler}
+              onClick={() => setIsMenuActive(!isMenuActive)}
             >
               <div className="bar"></div>
               <div className="bar"></div>
