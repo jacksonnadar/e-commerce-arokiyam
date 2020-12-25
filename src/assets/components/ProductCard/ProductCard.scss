@@ -64,6 +64,9 @@
       letter-spacing: 0.065em;
       margin-top: 1.9em;
       color: var(--d-grey);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
     .price {
       margin-top: 0.2em;

@@ -173,10 +173,10 @@ header {
   .overlay {
     position: fixed;
     height: calc(100vh - var(--header-height));
-    top: var(--header-height);
+    top: 0;
     width: 100vw;
     background-color: var(--black);
-    opacity: 0;
+    opacity: 0.1;
     z-index: 2;
     transform: translateX(-100vw);
 

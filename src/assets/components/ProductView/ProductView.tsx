@@ -12,7 +12,7 @@ export interface ProductInput {
 interface ProductViewProps {}
 const data = new Array<ProductInput>(10).fill({
   image: oilBottle,
-  title: 'Ground nut oil',
+  title: 'Ground nut oil (Peanut oil)',
   sellingPrice: '499.99',
   marketPrice: '500.00',
 });

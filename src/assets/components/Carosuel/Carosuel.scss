@@ -83,6 +83,9 @@
     justify-content: center;
     position: relative;
     top: -10px;
+    @include ipadpro {
+      margin-top: 0.7rem;
+    }
     .pagination-dot {
       cursor: pointer;
       width: 0.7rem;

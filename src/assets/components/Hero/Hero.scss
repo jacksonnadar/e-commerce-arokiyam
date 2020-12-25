@@ -30,7 +30,7 @@
       justify-content: flex-start;
     }
     @include mobile {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
     .arokiyam {
       font-weight: bold;
@@ -170,7 +170,7 @@
 .decor-dots {
   left: 53%;
   bottom: 25%;
-  transform: scale(0.98);
+  width: 5.4rem;
   @include ipadpro {
     bottom: 18%;
   }
@@ -181,6 +181,9 @@
   @include mobile {
     left: 40%;
     bottom: 15%;
+  }
+  @include smallmobile {
+    width: 4rem;
   }
 }
 .down {
