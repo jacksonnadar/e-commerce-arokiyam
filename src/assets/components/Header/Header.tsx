@@ -51,7 +51,7 @@ const Header: React.FC<Props> = () => {
               </svg>
             </div>
             <div
-              className={isMenuActive ? 'ham-menu header-active' : 'ham-menu'}
+              className={isMenuActive ? 'ham-menu ham-menu-active' : 'ham-menu'}
               onClick={() => setIsMenuActive(!isMenuActive)}
             >
               <div className="bar"></div>

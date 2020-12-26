@@ -140,5 +140,9 @@
     top: 50%;
     transform: translateY(-50%);
     opacity: 0.2;
+    @include mobile {
+      font-size: 8rem;
+      top: 40%;
+    }
   }
 }

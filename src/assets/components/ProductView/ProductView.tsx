@@ -8,6 +8,7 @@ export interface ProductInput {
   title: string;
   sellingPrice: string;
   marketPrice: string;
+  id?: number;
 }
 interface ProductViewProps {}
 const data = new Array<ProductInput>(10).fill({

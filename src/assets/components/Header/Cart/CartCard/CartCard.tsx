@@ -18,7 +18,7 @@ const CartCard: React.FC<Props> = ({ item, removeHandler, index }) => {
           <img src={item.image} alt="" />
         </div>
         <div className="details">
-          <div className="title">{item.title}</div>
+          <div className="title">{item.title + item.id}</div>
 
           <div className="prices">
             <p className="s-price">{'₹' + item.sellingPrice}</p>
@@ -33,7 +33,6 @@ const CartCard: React.FC<Props> = ({ item, removeHandler, index }) => {
                 -
               </button>
               <input
-                type="number"
                 value={quantityInput}
                 onChange={(e) => setQuantityInput(+e.target.value)}
               />

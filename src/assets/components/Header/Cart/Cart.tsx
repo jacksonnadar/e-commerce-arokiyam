@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { ProductInput } from '../../ProductView/ProductView';
 import oilBottle from '../../../images/pngs/oilBottle.png';
 
 import './Cart.scss';
@@ -12,14 +11,36 @@ interface totalPrices {
   s_price: number;
 }
 const Cart: React.FC<Props> = ({ isCartActive }) => {
-  const [data, setData] = useState(
-    new Array<ProductInput>(4).fill({
+  const [data, setData] = useState([
+    {
       image: oilBottle,
       title: 'Ground nut oil (peanut oil)',
       sellingPrice: '499.00',
       marketPrice: '500.00',
-    })
-  );
+      id: 1,
+    },
+    {
+      image: oilBottle,
+      title: 'Ground nut oil (peanut oil)',
+      sellingPrice: '499.00',
+      marketPrice: '500.00',
+      id: 2,
+    },
+    {
+      image: oilBottle,
+      title: 'Ground nut oil (peanut oil)',
+      sellingPrice: '499.00',
+      marketPrice: '500.00',
+      id: 3,
+    },
+    {
+      image: oilBottle,
+      title: 'Ground nut oil (peanut oil)',
+      sellingPrice: '499.00',
+      marketPrice: '500.00',
+      id: 4,
+    },
+  ]);
   const [totalPrice, setTotalPrice] = useState<totalPrices>({
     s_price: 0,
     m_price: 0,
@@ -27,7 +48,7 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
   const removeHandler = (index: number) => {
     setData((d) => {
       const cards = [...d];
-      cards.splice(index, 1);
+      console.log(cards.splice(index, 1));
       return cards;
     });
   };
@@ -53,7 +74,7 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
           return (
             <CartCard
               item={card}
-              key={index}
+              key={card.id}
               index={index}
               removeHandler={removeHandler}
             />
