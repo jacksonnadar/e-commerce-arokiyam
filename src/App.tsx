@@ -4,8 +4,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './assets/scss/App.scss';
 import Header from './assets/components/Header/Header';
 import LoadingIcon from './assets/components/LoadingIcon/LoadingIcon';
-import registerServiceWorker from './serviceWorker';
-registerServiceWorker();
 
 const Home = lazy(() => import('./pages/Home/Home'));
 function App() {
