@@ -18,6 +18,7 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
       sellingPrice: '499.00',
       marketPrice: '500.00',
       id: 1,
+      quantity: 1,
     },
     {
       image: oilBottle,
@@ -25,6 +26,7 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
       sellingPrice: '499.00',
       marketPrice: '500.00',
       id: 2,
+      quantity: 1,
     },
     {
       image: oilBottle,
@@ -32,6 +34,7 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
       sellingPrice: '499.00',
       marketPrice: '500.00',
       id: 3,
+      quantity: 1,
     },
     {
       image: oilBottle,
@@ -39,6 +42,7 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
       sellingPrice: '499.00',
       marketPrice: '500.00',
       id: 4,
+      quantity: 1,
     },
   ]);
   const [totalPrice, setTotalPrice] = useState<totalPrices>({
@@ -55,8 +59,8 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
   useEffect(() => {
     let price: totalPrices = { m_price: 0, s_price: 0 };
     data.forEach((item) => {
-      price.m_price += +item.marketPrice;
-      price.s_price += +item.sellingPrice;
+      price.m_price += +item.marketPrice * item.quantity;
+      price.s_price += +item.sellingPrice * item.quantity;
     });
     setTotalPrice(price);
   }, [data]);
@@ -77,6 +81,7 @@ const Cart: React.FC<Props> = ({ isCartActive }) => {
               key={card.id}
               index={index}
               removeHandler={removeHandler}
+              setData={setData}
             />
           );
         })}

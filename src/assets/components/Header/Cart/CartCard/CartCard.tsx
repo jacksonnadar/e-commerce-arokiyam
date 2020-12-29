@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
-import { ProductInput } from '../../../ProductView/ProductView';
+import React from 'react';
 
 import './CartCard.scss';
+interface CartCardInterFace {
+  image: string;
+  title: string;
+  sellingPrice: string;
+  marketPrice: string;
+  id: number;
+  quantity: number;
+}
 interface Props {
-  item: ProductInput;
+  item: CartCardInterFace;
   index: number;
   removeHandler: (index: number) => void;
+  setData: React.Dispatch<React.SetStateAction<CartCardInterFace[]>>;
 }
 
-const CartCard: React.FC<Props> = ({ item, removeHandler, index }) => {
-  const [quantityInput, setQuantityInput] = useState(1);
+const CartCard: React.FC<Props> = ({ item, removeHandler, index, setData }) => {
+  const changeQuanityInput = (add: boolean) => {
+    setData((d) => {
+      const data = [...d];
+      data[index].quantity = add
+        ? data[index].quantity + 1
+        : data[index].quantity > 0
+        ? data[index].quantity - 1
+        : 0;
+      return data;
+    });
+  };
 
   return (
     <div className="CartCard">
@@ -28,17 +46,23 @@ const CartCard: React.FC<Props> = ({ item, removeHandler, index }) => {
             <div className="quantity">
               <button
                 className="add-sub"
-                onClick={() => setQuantityInput((c) => (c > 0 ? c - 1 : 0))}
+                onClick={() => changeQuanityInput(false)}
               >
                 -
               </button>
               <input
-                value={quantityInput}
-                onChange={(e) => setQuantityInput(+e.target.value)}
+                value={item.quantity}
+                onChange={(e) => {
+                  setData((d) => {
+                    const data = [...d];
+                    data[index].quantity = +e.target.value;
+                    return data;
+                  });
+                }}
               />
               <button
                 className="add-sub"
-                onClick={() => setQuantityInput((c) => c + 1)}
+                onClick={() => changeQuanityInput(true)}
               >
                 +
               </button>
