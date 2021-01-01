@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+interface Props {
+  setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-interface Props {}
-
-const NavLinks: React.FC<Props> = () => {
+const NavLinks: React.FC<Props> = ({ setIsMenuActive }) => {
   return (
-    <ul className="nav-links">
-      <a href="/">
+    <ul className="nav-links" onClick={() => setIsMenuActive(false)}>
+      <Link to="/">
         <li className="nav-link active">Home</li>
-      </a>
+      </Link>
       <a href="/">
         <li className="nav-link">Products</li>
       </a>

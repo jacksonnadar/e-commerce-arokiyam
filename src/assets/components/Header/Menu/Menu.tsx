@@ -1,13 +1,14 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import './Menu.scss';
 import avatar from '../../../images/jpgs/avatar.jpg';
 import NavLinks from '../NavLinks';
 interface Props {
   isMenuActive: boolean;
+  setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Menu: React.FC<Props> = ({ isMenuActive }) => {
+const Menu: React.FC<Props> = ({ isMenuActive, setIsMenuActive }) => {
   return (
     <div className={!isMenuActive ? 'Menu' : 'Menu active-menu'}>
       <section className="top">
@@ -49,8 +50,14 @@ const Menu: React.FC<Props> = ({ isMenuActive }) => {
         </div>
       </section>
       <section className="bottom">
-        <NavLinks />
-        <button className="auth">Login</button>
+        <NavLinks setIsMenuActive={setIsMenuActive} />
+        <Link
+          className="auth-link"
+          to="/auth"
+          onClick={() => setIsMenuActive(false)}
+        >
+          <button className="auth">Login</button>
+        </Link>
       </section>
     </div>
   );

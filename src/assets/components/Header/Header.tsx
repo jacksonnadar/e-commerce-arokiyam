@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import NavLinks from './NavLinks';
+import { Link } from 'react-router-dom';
 
+import NavLinks from './NavLinks';
 import logo from '../../images/pngs/logo.png';
 import search from '../../images/svgs/search.svg';
 import './Header.scss';
@@ -30,10 +31,12 @@ const Header: React.FC<Props> = () => {
       <nav className={isHeader ? 'header-active' : ''}>
         <section className="section-1">
           <img src={logo} alt={'img'} className="logo"></img>
-          <NavLinks />
+          <NavLinks setIsMenuActive={setIsMenuActive} />
         </section>
         <section className="section-2">
-          <button className="auth">Login</button>
+          <Link to="/auth">
+            <button className="auth">Login</button>
+          </Link>
           <div className="search-box">
             <input placeholder={'search'} id="search"></input>
             <img src={search} alt="search" />
@@ -62,7 +65,7 @@ const Header: React.FC<Props> = () => {
           </div>
         </section>
       </nav>
-      <Menu isMenuActive={isMenuActive} />
+      <Menu isMenuActive={isMenuActive} setIsMenuActive={setIsMenuActive} />
       <Cart isCartActive={isCartActive} />
 
       <div

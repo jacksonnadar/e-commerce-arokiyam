@@ -1,0 +1,314 @@
+@import '../../scss/screen_size';
+.AuthForm {
+  position: relative;
+  width: 50rem;
+  // height: 26.8rem;
+  background: var(--bg-color);
+  box-shadow: 0px 4px 77px -18px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  @include ipadpro {
+    width: 40rem;
+  }
+  @include ipad {
+    width: 80vw;
+    // height: auto;
+  }
+  @include mobile {
+    width: 90vw;
+  }
+  @include smallmobile {
+    width: 95vw;
+  }
+  .auth-button {
+    border-radius: 8px;
+    padding: 0.6rem 0.5rem;
+    width: 93%;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.085em;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+  }
+  .grids {
+    height: 100%;
+    display: flex;
+    font-family: Poppins;
+    font-style: normal;
+    @include ipad {
+      flex-direction: column;
+    }
+    .primary {
+      padding: 1.7rem;
+      width: 100%;
+      height: 100%;
+      &__heading {
+        height: auto;
+        .heading {
+          font-size: 20px;
+          line-height: 30px;
+          letter-spacing: 0.15em;
+          font-weight: 500;
+          color: var(--black);
+        }
+        .greeting {
+          font-size: 13px;
+          line-height: 19px;
+          letter-spacing: 0.085em;
+          font-weight: normal;
+          color: var(--d-grey);
+        }
+      }
+      form {
+        height: 100%;
+        @include ipad {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .input-container {
+          height: 76%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        button {
+          margin-top: 2rem;
+          background: var(--green);
+          color: var(--white);
+          @include ipad {
+            width: 100%;
+          }
+        }
+
+        button:hover,
+        button:focus {
+          outline: none;
+          box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.25);
+        }
+        button:active {
+          outline: none;
+        }
+      }
+    }
+    .divider {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      @include ipad {
+        position: relative;
+        margin: 10px auto;
+        left: 0%;
+        transform: translate(0%, 0%);
+        width: 80%;
+      }
+      p {
+        transform: translateX(-50%);
+        color: var(--d-grey);
+        @include ipad {
+          z-index: 2;
+          width: 40px;
+          background: var(--bg-color);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+      }
+      .divide {
+        height: 300px;
+        width: 0.1px;
+        background-color: var(--d-grey);
+        opacity: 0.5;
+        @include ipad {
+          height: 0.1px;
+          width: 100%;
+        }
+      }
+    }
+    .secondary {
+      padding: 1.7rem;
+      width: 100%;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      @include ipad {
+        min-height: auto;
+      }
+      &__signin {
+        height: 80%;
+        .socials-signin {
+          width: 100%;
+          height: 100%;
+          .social {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+      }
+      &__button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .qoute {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 18px;
+          letter-spacing: 0.085em;
+          color: var(--d-grey);
+          display: inline;
+          margin-bottom: 2rem;
+        }
+        .secondary-button {
+          background: var(--orange);
+          color: var(--white);
+          justify-self: flex-end;
+          @include ipad {
+            width: 100%;
+          }
+        }
+        .secondary-button:active,
+        .secondary-button:hover {
+          outline: none;
+          box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.25);
+        }
+        .secondary-button:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+.social-button {
+  margin: 20px 0;
+  display: flex;
+  width: 100%;
+  padding: 1.2rem 0.5rem;
+  background: var(--bg-color);
+  box-shadow: 0px 4px 41px -9px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  @include smallmobile {
+    margin: 0.6rem auto;
+    padding: 0.8rem 0.5rem;
+  }
+  @include ipad {
+    position: relative;
+  }
+  @include mobile {
+    margin: 1.2rem auto;
+  }
+  cursor: pointer;
+  .img-container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .join {
+    margin: auto;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.085em;
+    color: var(--d-grey);
+    @include ipad {
+      margin: 0;
+      width: 60%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @include smallmobile {
+      font-size: 12px;
+    }
+  }
+}
+.input-wrapper {
+  width: 100%;
+  margin: 5px auto auto auto;
+  .input {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    label {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.085em;
+      color: var(--d-grey);
+      margin: 0.5rem 0;
+    }
+    input {
+      background: var(--vl-grey);
+      border: none;
+      border-radius: 0.7rem;
+      padding: 0.6rem 1rem;
+      width: 93%;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.085em;
+      transition: all 0.2s ease-in-out;
+      color: var(--black);
+      @include ipad {
+        width: 100%;
+        padding: 0.9rem 1rem;
+      }
+    }
+    input:focus,
+    input:hover {
+      border: none;
+      background-color: rgb(209, 209, 209);
+      outline: none;
+    }
+    .pass {
+      position: relative;
+      .hid-icon {
+        position: absolute;
+        background-color: var(--d-grey);
+        height: 100%;
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 7%;
+        top: 0;
+        border-radius: 0px 0.7rem 0.7rem 0px;
+        @include ipad {
+          right: 0;
+        }
+        svg {
+          width: 50%;
+        }
+      }
+      .cross {
+        position: absolute;
+        width: 0.2rem;
+        height: 80%;
+        background-color: var(--white);
+
+        transform: scaleX(0.01);
+
+        transition: transform 0.5s;
+      }
+      .cross-active {
+        transform: scaleX(1);
+        transform: rotateZ(45deg);
+      }
+    }
+  }
+  .message {
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: var(--d-grey);
+  }
+}
