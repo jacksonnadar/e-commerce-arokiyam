@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import NavLinks from './NavLinks';
@@ -7,6 +7,8 @@ import search from '../../images/svgs/search.svg';
 import './Header.scss';
 import Menu from './Menu/Menu';
 import Cart from './Cart/Cart';
+import UserContext from '../../hooks/UserContext';
+import { Authentications } from '../../../firebase';
 
 export interface Props {}
 
@@ -14,18 +16,21 @@ const Header: React.FC<Props> = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isCartActive, setIsCartActive] = useState(false);
   const [isHeader, setIsHeader] = useState(true);
+  const user = useContext(UserContext);
   useEffect(() => {
     let prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
       let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
+      if (prevScrollpos === currentScrollPos + 1) {
         setIsHeader(true);
-      } else {
+      }
+      if (prevScrollpos === currentScrollPos - 1) {
         setIsHeader(false);
       }
       prevScrollpos = currentScrollPos;
     };
-  });
+  }, []);
+
   return (
     <header>
       <nav className={isHeader ? 'header-active' : ''}>
@@ -35,7 +40,9 @@ const Header: React.FC<Props> = () => {
         </section>
         <section className="section-2">
           <Link to="/auth">
-            <button className="auth">Login</button>
+            <button onClick={Authentications.logOut} className="auth">
+              {!user ? 'Log in' : 'Log out'}
+            </button>
           </Link>
           <div className="search-box">
             <input placeholder={'search'} id="search"></input>

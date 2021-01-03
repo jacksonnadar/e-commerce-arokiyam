@@ -44,7 +44,7 @@
     },
     "ui": {
       "enabled": true,
-      "port": 8080
+      "port":6001
     }
   },
   "remoteconfig": {

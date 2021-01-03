@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import google from '../../images/svgs/google.svg';
-import fb from '../../images/svgs/facebook.svg';
 import './AuthForm.scss';
+
+import { Authentications } from '../../../firebase';
 export interface Values {
   [name: string]: string;
   email: string;
@@ -14,17 +14,34 @@ const AuthForm = () => {
     password: '',
   });
   const [isSignIn, setIsSignIn] = useState(!false);
-  const [isPasshid, setIsPasshid] = useState(false);
-  // const [message, setMessage] = useState('');
+  const [isPasshid, setIsPasshid] = useState(true);
+  const [message, setMessage] = useState('');
 
   const inputOnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues((v) => {
       const values = { ...v };
       values[e.target.name] = e.target.value;
-      console.log(values);
-
       return values;
     });
+  };
+  const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!values.email && !values.password) return;
+    if (isSignIn) {
+      Authentications.signInWithEmailAndPass(
+        values.email,
+        values.password,
+        setMessage
+      );
+    }
+    if (!isSignIn && values.name) {
+      Authentications.creatUserWithEmailAndPass(
+        values.name,
+        values.email,
+        values.password,
+        setMessage
+      );
+    }
   };
   return (
     <div className="AuthForm">
@@ -38,7 +55,7 @@ const AuthForm = () => {
                 : 'Looks like you are new here.'}
             </div>
           </div>
-          <form>
+          <form onSubmit={formHandler}>
             <div className="input-container">
               <div className="input-wrapper">
                 {!isSignIn && (
@@ -86,13 +103,13 @@ const AuthForm = () => {
                         />
                       </svg>
                       <div
-                        className={isPasshid ? 'cross' : 'cross cross-active'}
+                        className={!isPasshid ? 'cross' : 'cross cross-active'}
                       ></div>
                     </span>
                   </div>
                 </div>
 
-                <p className="message">{/* {message} */}</p>
+                <p className="message">{message}</p>
               </div>
             </div>
 
@@ -109,23 +126,63 @@ const AuthForm = () => {
           <div className="secondary__signin">
             <div className="socials-signin">
               <div className="social">
-                <div className={'social-button google'}>
+                <div
+                  className={'social-button google'}
+                  onClick={Authentications.googleLogin}
+                >
                   <div className="img-container">
-                    <img src={google} alt={'google'} />
+                    <svg
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M27.0741 11.3886H26.0001V11.3333H14.0001V16.6666H21.5354C20.4361 19.7713 17.4821 22 14.0001 22C9.58208 22 6.00008 18.418 6.00008 14C6.00008 9.58196 9.58208 5.99996 14.0001 5.99996C16.0394 5.99996 17.8947 6.76929 19.3074 8.02596L23.0787 4.25463C20.6974 2.03529 17.5121 0.666626 14.0001 0.666626C6.63675 0.666626 0.666748 6.63663 0.666748 14C0.666748 21.3633 6.63675 27.3333 14.0001 27.3333C21.3634 27.3333 27.3334 21.3633 27.3334 14C27.3334 13.106 27.2414 12.2333 27.0741 11.3886Z"
+                        fill="#FFC107"
+                      />
+                      <path
+                        d="M2.2041 7.79396L6.58477 11.0066C7.7701 8.07196 10.6408 5.99996 14.0001 5.99996C16.0394 5.99996 17.8948 6.76929 19.3074 8.02596L23.0788 4.25463C20.6974 2.03529 17.5121 0.666626 14.0001 0.666626C8.87877 0.666626 4.43743 3.55796 2.2041 7.79396Z"
+                        fill="#FF3D00"
+                      />
+                      <path
+                        d="M13.9999 27.3333C17.4439 27.3333 20.5732 26.0153 22.9392 23.872L18.8126 20.38C17.4289 21.4322 15.7382 22.0013 13.9999 22C10.5319 22 7.58722 19.7886 6.47788 16.7026L2.12988 20.0526C4.33655 24.3706 8.81788 27.3333 13.9999 27.3333Z"
+                        fill="#4CAF50"
+                      />
+                      <path
+                        d="M27.074 11.3887H26V11.3334H14V16.6667H21.5353C21.0095 18.1443 20.0622 19.4355 18.8107 20.3807L18.8127 20.3794L22.9393 23.8714C22.6473 24.1367 27.3333 20.6667 27.3333 14C27.3333 13.106 27.2413 12.2334 27.074 11.3887Z"
+                        fill="#1976D2"
+                      />
+                    </svg>
                   </div>
                   <div className="join">join us with Google</div>
                 </div>
-                <div className="social-button facebool">
+                <div
+                  onClick={Authentications.facebookLogin}
+                  className="social-button facebook"
+                >
                   <div className="img-container">
-                    <img src={fb} alt="facebook" />
+                    <svg
+                      width="18"
+                      height="32"
+                      viewBox="0 0 18 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.4462 17.9999L17.3352 12.2089H11.7782V8.45085C11.7782 6.86685 12.5542 5.32185 15.0432 5.32185H17.5692V0.391854C17.5692 0.391854 15.2772 0.000854492 13.0852 0.000854492C8.50915 0.000854492 5.51815 2.77485 5.51815 7.79585V12.2099H0.431152V18.0009H5.51815V32.0009H11.7782V18.0009L16.4462 17.9999Z"
+                        fill="#3B5998"
+                      />
+                    </svg>
                   </div>
-                  <div className="join">join us with Facebook</div>
+                  <div className="join">join us with FB</div>
                 </div>
               </div>
             </div>
           </div>
           <div className="secondary__button">
-            <div className="qoute">
+            <div className="qoute" onClick={Authentications.logOut}>
               {isSignIn
                 ? 'Not a member. quick Sign up'
                 : 'Already signed up. you can Sign-in'}
