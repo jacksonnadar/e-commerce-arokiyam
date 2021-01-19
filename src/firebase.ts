@@ -37,7 +37,6 @@ const fbprovider = new firebase.auth.FacebookAuthProvider();
 //   auth.useEmulator('http://localhost:9099');
 // }
 export default firebase;
-interface ErrorCode {}
 
 class Auth {
   googleLogin() {
@@ -104,7 +103,6 @@ class Auth {
           .confirm(code!)
           .then((result) => {
             // User signed in successfully.
-            const user = result.user;
             console.log(result);
             // ...
           })
