@@ -1,6 +1,6 @@
 @import '../../scss/screen_size';
 .ProductCard {
-  min-width: 9.75rem;
+  width: 9.75rem;
   height: 16.87rem;
   background-color: var(--white);
   border: 3px solid var(--vl-grey);
@@ -8,6 +8,8 @@
   padding: 1.2rem 0.7rem;
   scroll-snap-align: start;
   font-size: 1rem;
+  margin: auto;
+  z-index: 1;
   @include mobile {
     min-width: 10.75rem;
     height: 17.87rem;

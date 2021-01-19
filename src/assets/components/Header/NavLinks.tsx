@@ -10,7 +10,7 @@ const NavLinks: React.FC<Props> = ({ setIsMenuActive }) => {
       <Link to="/">
         <li className="nav-link active">Home</li>
       </Link>
-      <a href="/">
+      <a href="/product">
         <li className="nav-link">Products</li>
       </a>
       <a href="/">

@@ -1,0 +1,243 @@
+@import '../../scss/screen_size';
+$filter-button-height: 4rem;
+
+.SortProduct {
+  padding: 0 2vw;
+  display: flex;
+  padding-top: 2rem;
+  // column-gap: 2rem;
+  @include ipadpro {
+    flex-direction: column;
+    padding: 0;
+  }
+  .mobile-filter-sort {
+    z-index: 2;
+    display: none;
+
+    @include ipadpro {
+      display: flex;
+      position: fixed;
+      width: 100%;
+      height: $filter-button-height;
+      .filter-button,
+      .sort-button {
+        width: 50%;
+        height: 100%;
+        background-color: var(--bg-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.7rem;
+        outline: none;
+        cursor: pointer;
+        border: none;
+      }
+      .filter-button {
+        border-right: 1px solid var(--l-grey);
+      }
+    }
+  }
+}
+
+.filters {
+  width: 25%;
+  padding: 1rem;
+  align-self: start;
+  align-self: flex-start;
+  // @include glass;
+  background-color: var(--bg-color);
+  box-shadow: 0px 4px 61px -20px rgba(0, 0, 0, 0.25);
+  border-radius: 0.6rem;
+  font-family: Roboto;
+  font-style: normal;
+  --padding: 1rem 0 1rem 1rem;
+  margin-right: 2rem;
+  @include transition;
+  @include ipadpro {
+    z-index: 3;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    font-size: calc(1rem + 5px);
+    max-height: 80vh;
+    overflow-y: auto;
+    margin-right: 0;
+    transform: translateY(100%);
+  }
+  .Heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5em;
+    .title {
+      font-weight: 500;
+      font-size: 1.7em;
+      letter-spacing: 0.06em;
+      color: var(--d-grey);
+    }
+    .clear {
+      font-size: 0.9em;
+      font-weight: 400;
+      color: var(--red);
+    }
+  }
+  .filter-boxes {
+    display: flex;
+    padding: var(--padding);
+    position: relative;
+
+    .filter-box {
+      background-color: var(--d-grey);
+      padding: 0.5em;
+      position: relative;
+      border-radius: 0.3em;
+      h3 {
+        font-weight: 500;
+        font-size: 0.8em;
+        color: var(--white);
+      }
+      .cross-button {
+        position: absolute;
+        height: 1.5em;
+        width: 1.5em;
+        background-color: var(--red);
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: var(--white);
+      }
+    }
+  }
+
+  .price {
+    position: relative;
+    .price-filter {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--padding);
+      select {
+        background-color: var(--d-grey);
+        border: none;
+        width: 30%;
+        outline: none;
+        color: var(--white);
+        padding: 0.1em;
+        border-radius: 0.2em;
+        font-size: 0.8em;
+      }
+      p {
+        color: var(--l-grey);
+      }
+    }
+  }
+  .brand-filter {
+    position: relative;
+    .brands {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.7em;
+      padding: var(--padding);
+      max-height: 11em;
+      overflow-y: auto;
+    }
+  }
+  .stock-filter {
+    .stock {
+      padding: var(--padding);
+    }
+  }
+  .divider::after {
+    content: '';
+    height: 0.13em;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--l-grey);
+    transform: translateX(-50%);
+  }
+}
+
+.product-cards {
+  background-color: var(--bg-color);
+  flex-grow: 1;
+  padding: 1rem 2rem;
+  box-shadow: 0px 4px 61px -20px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  height: max-content;
+  margin-bottom: 2rem;
+  @include ipadpro {
+    padding-top: $filter-button-height;
+    background-color: transparent;
+  }
+  .sort {
+    display: flex;
+    align-items: center;
+    @include transition;
+    @include ipadpro {
+      position: fixed;
+      background-color: var(--bg-color);
+      width: 100vw;
+      bottom: 0;
+      left: 0;
+      flex-direction: column;
+      row-gap: 2rem;
+      padding: 2rem;
+      font-size: calc(1rem + 5px);
+      justify-content: center;
+      transform: translateY(100%);
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 1.9em;
+      letter-spacing: 0.065em;
+      color: var(--d-grey);
+      margin-right: 2em;
+      min-width: 7em;
+      @include ipadpro {
+        margin-right: 0;
+        min-width: 0;
+      }
+    }
+    .sort-button {
+      padding: 0em 2em;
+      height: 1.5em;
+      cursor: pointer;
+      border: none;
+      background-color: var(--d-grey);
+      border-radius: 0.2em;
+      color: var(--white);
+      font-size: 1em;
+      margin-right: 1em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @include ipadpro {
+        margin-left: 0;
+      }
+      &--active {
+        background-color: var(--blue);
+      }
+    }
+  }
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}
+.overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 3;
+}

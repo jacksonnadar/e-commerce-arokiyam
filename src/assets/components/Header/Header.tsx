@@ -18,17 +18,17 @@ const Header: React.FC<Props> = () => {
   const [isHeader, setIsHeader] = useState(true);
   const user = useContext(UserContext);
   useEffect(() => {
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function () {
-      let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos === currentScrollPos + 1) {
-        setIsHeader(true);
-      }
-      if (prevScrollpos === currentScrollPos - 1) {
-        setIsHeader(false);
-      }
-      prevScrollpos = currentScrollPos;
-    };
+    // let prevScrollpos = window.pageYOffset;
+    // window.onscroll = function () {
+    //   let currentScrollPos = window.pageYOffset;
+    //   if (prevScrollpos === currentScrollPos + 1) {
+    //     setIsHeader(true);
+    //   }
+    //   if (prevScrollpos === currentScrollPos - 1) {
+    //     setIsHeader(false);
+    //   }
+    //   prevScrollpos = currentScrollPos;
+    // };
   }, []);
 
   return (

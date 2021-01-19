@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AuthForm.scss';
 
-import { Authentications } from '../../../firebase';
+import firebase, { Authentications } from '../../../firebase';
+
 export interface Values {
   [name: string]: string;
   email: string;
   password: string;
 }
+
 const AuthForm = () => {
   const [values, setValues] = useState<Values>({
     name: '',
@@ -26,15 +28,22 @@ const AuthForm = () => {
   };
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!values.email && !values.password) return;
+    if (!values.email && !values.password)
+      return setMessage('Please fill all require info');
     if (isSignIn) {
-      Authentications.signInWithEmailAndPass(
-        values.email,
-        values.password,
-        setMessage
-      );
+      Authentications.determinePhoneOrEmail(values.email)
+        ? Authentications.signInWithEmailAndPass(
+            values.email,
+            values.password,
+            setMessage
+          )
+        : setMessage('Please provide proper email or phone no');
+      // Authentications.signInWithPhoneNo();
     }
     if (!isSignIn && values.name) {
+      if (values.password.length < 6)
+        return setMessage('Password should be at least 6 characters');
+      // Authentications.determinePhoneOrEmail('+91' + values.email);
       Authentications.creatUserWithEmailAndPass(
         values.name,
         values.email,
@@ -42,7 +51,12 @@ const AuthForm = () => {
         setMessage
       );
     }
+
+    // console.log(recaptchaVerifier);
   };
+  useEffect(() => {
+    Authentications.captcha();
+  });
   return (
     <div className="AuthForm">
       <div className="grids">
@@ -70,12 +84,12 @@ const AuthForm = () => {
                   </div>
                 )}
                 <div className="input">
-                  <label htmlFor="email">E-mail</label>
+                  <label htmlFor="email">E-mail/Phone No.</label>
                   <input
                     value={values['email']}
                     onChange={inputOnChangeHandler}
                     name="email"
-                    type="email"
+                    type="text"
                   />
                 </div>
 
@@ -112,7 +126,7 @@ const AuthForm = () => {
                 <p className="message">{message}</p>
               </div>
             </div>
-
+            <div id="recaptcha-verifier"></div>
             <button className="primary-button auth-button">
               {isSignIn ? 'Sign in' : 'Sign up'}
             </button>

@@ -33,3 +33,11 @@
     @content;
   }
 }
+@mixin glass {
+  // background-color: rgba(255, 255, 248, 0.507);
+  // backdrop-filter: blur(10px);
+  background-color: var(--bg-color);
+}
+@mixin transition {
+  transition: transform 0.5s ease-in-out;
+}
