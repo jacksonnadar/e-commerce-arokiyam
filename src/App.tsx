@@ -6,6 +6,7 @@ import './assets/scss/App.scss';
 import Header from './assets/components/Header/Header';
 import LoadingIcon from './assets/components/LoadingIcon/LoadingIcon';
 import { auth } from './firebase';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Auth = lazy(() => import('./pages/Auth/Auth'));
@@ -32,6 +33,7 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/auth" exact component={Auth} />
               <Route path="/product" exact component={ProductDisplay} />
+              <Route path="/product:id" exact component={ProductPage} />
             </Suspense>
           </Switch>
         </BrowserRouter>
