@@ -1,22 +1,76 @@
+@import '../../scss/screen_size';
 .ProductPageDisplay {
+  margin-bottom: 2rem;
   width: 100%;
+  height: max-content;
   background-color: var(--white);
   padding: 3rem 2rem;
   padding-left: 5rem;
   display: flex;
   margin-top: 2rem;
   column-gap: 7rem;
+  @include ipadpro {
+    padding: 3rem;
+    flex-direction: column;
+    align-items: center;
+  }
   .first {
     width: 50%;
+    @include ipadpro {
+      width: 100%;
+    }
     .img-container {
       display: flex;
+      align-items: center;
       //   padding: 0 5rem;
       .tumbnails {
-        display: flex;
-        flex-direction: column;
-        height: 18rem;
-        overflow: hidden;
-        row-gap: 1rem;
+        position: relative;
+        .tumbnail-images {
+          display: flex;
+          flex-direction: column;
+          height: 18rem;
+          overflow-y: auto;
+          row-gap: 1rem;
+          scroll-snap-type: x mandatory;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          img {
+            scroll-snap-align: end;
+          }
+          & {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+          }
+        }
+
+        .top,
+        .bottom {
+          // padding: 0 10px;
+          position: absolute;
+          background-color: white;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          svg {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+        .hide {
+          display: none;
+        }
+        .top {
+          top: -10px;
+          left: 50%;
+          transform: rotateZ(90deg) translateY(50%);
+        }
+        .bottom {
+          bottom: -10px;
+          left: 50%;
+          transform: rotateZ(-90deg) translateY(-50%);
+        }
         img {
           width: 2.5rem;
         }
@@ -31,8 +85,22 @@
         }
       }
     }
+    .add-to-cart {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      border: none;
+      outline: none;
+      background-color: var(--blue);
+      border-radius: 5px;
+      color: var(--white);
+    }
   }
   .second {
+    @include ipadpro {
+      margin-top: 2rem;
+    }
     h1 {
       font-weight: 400;
       font-size: 1.7rem;
